@@ -49,4 +49,19 @@ VALUES ('Kulberg', 'Marek', 4.9),
 ('Jegorov', 'Ruslan', 3.2),
 ('Filin', 'Dmitri', 4.1);
 ```
+## Seosed (tabelivahelised seosed)
+- üks-ühele (nt mees-naine)
+- üks-mitmele (nt ema-lapsed)
+
+<img width="588" height="289" alt="{3A009B39-3231-41AF-A149-862869A5ACFC}" src="https://github.com/user-attachments/assets/450a051e-f863-4cad-9bc8-640bf498f76e" />
+- mitu-mitmele (nt õpilased-õpetajad)
+
+## PIIRANGUD
+constraint - piirangud - ограничения (5)
+1. PRIMARY KEY
+2. FOREIGN KEY
+3. CHECK
+4. NOT NULL
+5. UNIQUE
+
 
