@@ -64,4 +64,21 @@ constraint - piirangud - ограничения (5)
 4. NOT NULL
 5. UNIQUE
 
+```sql
+--FOREIGN KEY
+CREATE TABLE opetamine(
+opitamineID int PRIMARY KEY identity(1,1),
+kuupaev DATE,
+oppeaine varchar(30),
+opilaneID int,
+FOREIGN KEY (opilaneID) REFERENCES opilane(opilaneID),
+hinne int CHECK(hinne<=5));
+
+SELECT * FROM opetamine;
+SELECT * FROM opilane;
+--täidame tabeli
+INSERT INTO opetamine
+VALUES ('2026-04-16', 'andmebaasid',5, 3)
+```
+
 
