@@ -63,6 +63,8 @@ constraint - piirangud - ограничения (5)
 3. CHECK
 4. NOT NULL
 5. UNIQUE
+<img width="485" height="247" alt="{5C39CCB0-6544-40EF-AAB4-E48F7D35421E}" src="https://github.com/user-attachments/assets/7d62a773-e7da-4977-9865-1d8b5b370f4c" />
+
 
 ```sql
 --FOREIGN KEY
