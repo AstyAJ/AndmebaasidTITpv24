@@ -137,46 +137,29 @@ AFTER INSERT
 AS
 BEGIN
 
-    INSERT INTO Logi
-    (
-        Kasutaja,
-        Kuupaev,
-        Tegevus,
-        SisestatudAndmed
-    )
+INSERT INTO Logi (Kasutaja,Kuupaev,Tegevus,SisestatudAndmed)
 
-    SELECT
-        SYSTEM_USER,
-        GETDATE(),
-        'INSERT',
+SELECT
+SYSTEM_USER,
+GETDATE(),'INSERT',
+CONCAT('LendID=', LendID,'; LennuNumber=', LennuNumber,'; Valjumisaeg=', Valjumisaeg,'; LennujaamID=', LennujaamID)
 
-        CONCAT(
-            'LendID=', LendID,
-            '; LennuNumber=', LennuNumber,
-            '; Valjumisaeg=', Valjumisaeg,
-            '; LennujaamID=', LennujaamID
-        )
-
-    FROM inserted;
+FROM inserted;
 
 END;
 GO
 
-INSERT INTO Lend
-(
-    LennuNumber,
-    Valjumisaeg,
-    LennujaamID
-)
-VALUES
-(
-    'SK404',
-    '2025-06-25 15:30',
-    1
-);
+INSERT INTO Lend (LennuNumber,Valjumisaeg,LennujaamID)
+VALUES ('SK404','2025-06-25 15:30',1);
 GO
 
 SELECT * FROM Logi;
+
+/* =========================================================
+   6. Trigger DELETE jaoks
+   Kui tabelist Lend kustutatakse lend, siis salvestatakse
+   kustutatud lennu andmed tabelisse Logi.
+   ========================================================= */
 
 CREATE TRIGGER trg_Lend_Delete
 ON Lend
@@ -208,11 +191,7 @@ INSERT INTO Logi
 
 END;
 GO
-/* =========================================================
-   6. Trigger DELETE jaoks
-   Kui tabelist Lend kustutatakse lend, siis salvestatakse
-   kustutatud lennu andmed tabelisse Logi.
-   ========================================================= */
+
 DELETE FROM Lend
 WHERE LennuNumber = 'SK404';
 GO
@@ -220,6 +199,11 @@ GO
 SELECT * FROM Logi;
 
 
+/* =========================================================
+   7. Salvestatud protseduurid
+   Protseduurid lihtsustavad uute lennujaamade ja lendude
+   lisamist ning reisija otsimist nime järgi.
+   ========================================================= */
 
 CREATE PROCEDURE LisaLennujaam
     @Nimi NVARCHAR(100),
