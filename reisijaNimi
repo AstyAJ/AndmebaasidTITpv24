@@ -1,0 +1,17 @@
+USE LennujaamDBART;
+GO
+
+SELECT USER_NAME() AS PraeguneKasutaja;
+GO
+
+SELECT * FROM Lennujaam;
+SELECT * FROM Lend;
+SELECT * FROM Reisija;
+GO
+
+DELETE FROM Lennujaam
+WHERE LennujaamaNimi = 'Narva Lennujaam';
+GO
+
+ALTER TABLE Lend ADD TestColumn NVARCHAR(50);
+GO
