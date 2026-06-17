@@ -1,4 +1,7 @@
 # AndmebaasidTITpv24
+
+[Põhimõisted](README.md) [Arvestus](arvestus.md) [Arvestus SQL](arvestu.sql)
+
 Andmebaasidega seotud SQL kood ja konspektid
 ## Põhimõisted
 - andmebaas - struktureeritud andmete kogum
