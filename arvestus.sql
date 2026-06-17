@@ -47,6 +47,7 @@ GO
    - üks lennujaam võib olla seotud mitme lennuga
    - üks lend võib olla seotud mitme reisijaga
    ========================================================= */
+   
 CREATE TABLE Lennujaam (
     LennujaamID INT IDENTITY(1,1) PRIMARY KEY,
     LennujaamaNimi NVARCHAR(100) NOT NULL,
