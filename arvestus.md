@@ -1,5 +1,9 @@
 # LennujaamDBART
 
+
+[Põhimõisted](README.md) [Arvestus](arvestus.md) [Arvestus SQL](arvestu.sql)
+
+
 ## Autor
 
 Artjom Jegorov
