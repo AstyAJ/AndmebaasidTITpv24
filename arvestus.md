@@ -379,7 +379,7 @@ GO
 ## Vaade_Reisijad_Lennujaamad
 
 Kuvab reisijad, lennud ja lennujaamad ühes vaates.
-
+```sql
 CREATE VIEW Vaade_Reisijad_Lennujaamad AS
 SELECT 
     R.Nimi,
@@ -395,11 +395,8 @@ GO
 
 ### Tulemus
 
-Lisa siia vaadete ekraanipilt.
+<img width="476" height="379" alt="{E1293E6A-9A16-462A-A784-E5C245EF3791}" src="https://github.com/user-attachments/assets/6c1a6e1a-ca57-43d5-b174-4f65808a405e" />
 
-![Views](screenshots/views.png)
-
----
 
 # Õiguste kontroll
 
@@ -414,11 +411,8 @@ SQL Server tagastas veateate, mis kinnitas õiguste korrektset seadistamist.
 
 ### Tulemus
 
-Lisa siia ALTER vea ekraanipilt.
+<img width="663" height="179" alt="{5953C88D-72D5-445B-A7D3-DC34CC0D3C22}" src="https://github.com/user-attachments/assets/ce2529b5-dda5-430c-82a8-792a3d168877" />
 
-![Permissions](screenshots/alter_error.png)
-
----
 
 # Lisafunktsionaalsus
 
@@ -430,14 +424,29 @@ Tabel sisaldab:
 * reisija ID
 * broneeringu kuupäeva
 * staatust
+```sql
+CREATE TABLE Broneering (
+    BroneeringID INT IDENTITY(1,1) PRIMARY KEY,
+    ReisijaID INT NOT NULL,
+    BroneeringuKuupaev DATETIME DEFAULT GETDATE(),
+    Staatus NVARCHAR(50) DEFAULT 'Aktiivne',
 
+    CONSTRAINT FK_Broneering_Reisija
+        FOREIGN KEY (ReisijaID)
+        REFERENCES Reisija(ReisijaID)
+);
+GO
+
+INSERT INTO Broneering (ReisijaID)
+VALUES (1);
+
+SELECT * FROM Broneering;
+GO
+```
 ### Tulemus
 
-Lisa siia Broneering tabeli ekraanipilt.
+<img width="369" height="54" alt="{108BB365-031D-4CAB-9047-AC2826DC0A3D}" src="https://github.com/user-attachments/assets/d4198bc1-1b3a-4c5b-b499-8340a4f10411" />
 
-![Booking](screenshots/booking.png)
-
----
 
 # Kokkuvõte
 
